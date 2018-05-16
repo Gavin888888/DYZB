@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A0F4B6020ABCFD30034697E /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0F4B5F20ABCFD30034697E /* MainTabBarViewController.swift */; };
 		6AB0DF7820ABC0500064145D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB0DF7720ABC0500064145D /* AppDelegate.swift */; };
 		6AB0DF7D20ABC0500064145D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AB0DF7B20ABC0500064145D /* Main.storyboard */; };
 		6AB0DF7F20ABC0500064145D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AB0DF7E20ABC0500064145D /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A0F4B5F20ABCFD30034697E /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		6AB0DF7420ABC0500064145D /* DY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AB0DF7720ABC0500064145D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6AB0DF7C20ABC0500064145D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -48,10 +50,10 @@
 		6A0F4B5820ABCBD80034697E /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				6A0F4B5920ABCBD80034697E /* Follow */,
+				6A0F4B5C20ABCBD80034697E /* Main */,
 				6A0F4B5A20ABCBD80034697E /* Home */,
 				6A0F4B5B20ABCBD80034697E /* Live */,
-				6A0F4B5C20ABCBD80034697E /* Main */,
+				6A0F4B5920ABCBD80034697E /* Follow */,
 				6A0F4B5D20ABCBD80034697E /* Profile */,
 				6A0F4B5E20ABCBD80034697E /* Tools */,
 			);
@@ -82,6 +84,8 @@
 		6A0F4B5C20ABCBD80034697E /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				6AB0DF7B20ABC0500064145D /* Main.storyboard */,
+				6A0F4B5F20ABCFD30034697E /* MainTabBarViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -123,7 +127,6 @@
 			children = (
 				6A0F4B5820ABCBD80034697E /* Class */,
 				6AB0DF7720ABC0500064145D /* AppDelegate.swift */,
-				6AB0DF7B20ABC0500064145D /* Main.storyboard */,
 				6AB0DF7E20ABC0500064145D /* Assets.xcassets */,
 				6AB0DF8320ABC0500064145D /* Info.plist */,
 			);
@@ -232,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AB0DF7820ABC0500064145D /* AppDelegate.swift in Sources */,
+				6A0F4B6020ABCFD30034697E /* MainTabBarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +368,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = DY/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lilei.DY;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -380,6 +385,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = DY/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lilei.DY;
 				PRODUCT_NAME = "$(TARGET_NAME)";
