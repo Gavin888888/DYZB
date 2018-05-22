@@ -20,14 +20,14 @@ class HomeViewController: UIViewController {
     //懒加载内容属性
     private lazy var pageContentView: PageContentView = {
         let pageContentViewFrame = CGRect(x: 0, y: pageTitleView.frame.maxY, width: kScreenW, height: kScreenH - pageTitleView.frame.maxY)
-        var childVc = [UIViewController]
+        var childVc: [UIViewController] = [UIViewController]()
         for _ in 0..<4{
             let vc = UIViewController.init()
-            vc.view.backgroundColor = UIColor.init(r: CGFloat(arc4random(255.0)), g: <#T##CGFloat#>, b: <#T##CGFloat#>)
-            
+            vc.view.backgroundColor = UIColor.init(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)))
+            childVc.append(vc)
         }
-        let contentView = PageContentView.init(frame: pageContentViewFrame, childVcs: <#T##[UIViewController]#>, parentViewController: <#T##UIViewController#>)
-        contentView.backgroundColor = UIColor.red
+        let contentView = PageContentView.init(frame: pageContentViewFrame, childVcs: childVc, parentViewController: self)
+        contentView.backgroundColor = UIColor.white
         return contentView
     }()
     override func viewDidLoad() {
