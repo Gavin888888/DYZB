@@ -10,15 +10,16 @@ import UIKit
 
 class HomeViewController: UIViewController {
     //懒加载属性
-    private lazy var pageTitleView: PageTitleView = {
+    private lazy var pageTitleView: PageTitleView = {[weak self] in
         let titleFrame = CGRect(x: 0, y: 64, width: kScreenW, height: kNavigationBarH)
         let titles = ["推荐","游戏","娱乐","酷玩"]
         let titleView = PageTitleView.init(frame: titleFrame, titles: titles)
+        titleView.delegate = self;
 //        titleView.backgroundColor = UIColor.purple
         return titleView
     }()
     //懒加载内容属性
-    private lazy var pageContentView: PageContentView = {
+    private lazy var pageContentView: PageContentView = {[weak self] in
         let pageContentViewFrame = CGRect(x: 0, y: pageTitleView.frame.maxY, width: kScreenW, height: kScreenH - pageTitleView.frame.maxY)
         var childVc: [UIViewController] = [UIViewController]()
         for _ in 0..<4{
@@ -28,6 +29,7 @@ class HomeViewController: UIViewController {
         }
         let contentView = PageContentView.init(frame: pageContentViewFrame, childVcs: childVc, parentViewController: self)
         contentView.backgroundColor = UIColor.white
+        contentView.delegate = self!
         return contentView
     }()
     override func viewDidLoad() {
@@ -83,5 +85,15 @@ class HomeViewController: UIViewController {
     
         let rightBarButtonItem = UIBarButtonItem.init(customView: rightView)
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
+}
+extension HomeViewController: PageTitleViewDelegate{
+    func pageTitleViewDidSelected(selectedIndex: Int) {
+        pageContentView.setCurrentVc(currentIndex: selectedIndex)
+    }
+}
+extension HomeViewController: PageContentViewDelegate{
+    func pageContentViewDidChange(progress: CGFloat, sourceIndex: Int, targetIndex: Int) {
+        pageTitleView.setProgressAndSourceIndexAndTargetIndex(progress: progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
     }
 }

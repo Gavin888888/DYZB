@@ -7,28 +7,34 @@
 //
 
 import UIKit
+protocol PageContentViewDelegate: class {
+    func pageContentViewDidChange(progress: CGFloat,sourceIndex: Int,targetIndex: Int)
+}
 let colltionCellID = "colltionCellID"
-class PageContentView: UIView ,UICollectionViewDelegate,UICollectionViewDataSource{
-    private lazy var collectionView: UICollectionView = {
-
+class PageContentView: UIView ,UICollectionViewDataSource{
+    //设置代理
+    weak var delegate: PageContentViewDelegate?
+    //记录滑动开始位置
+    private var start_offSet_x: CGFloat = 0
+    private lazy var collectionView: UICollectionView = {[weak self] in
         let layout = UICollectionViewFlowLayout()
-        var colltionView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
+        var colltionView = UICollectionView(frame: self!.bounds, collectionViewLayout: layout)
         colltionView.delegate = self
         colltionView.dataSource = self
         colltionView.bounces = false
         colltionView.showsVerticalScrollIndicator = false
-        colltionView.showsHorizontalScrollIndicator = true
+        colltionView.showsHorizontalScrollIndicator = false
         colltionView.isPagingEnabled = true
         colltionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier:colltionCellID)
-        layout.itemSize = self.bounds.size
+        layout.itemSize = self!.bounds.size
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0.0
         layout.minimumInteritemSpacing = 0.0
         return colltionView
     }()
     private var childVcs = [UIViewController]()
-    private var parentVc:UIViewController
-    init(frame: CGRect , childVcs:[UIViewController],parentViewController:UIViewController) {
+    private weak var parentVc:UIViewController?
+    init(frame: CGRect , childVcs:[UIViewController],parentViewController:UIViewController?) {
         self.childVcs = childVcs
         self.parentVc = parentViewController
         super.init(frame: frame)
@@ -53,6 +59,44 @@ extension PageContentView{
     
         cell.addSubview(childVcs[indexPath.row].view)
         return cell
+    }
+    func setCurrentVc(currentIndex:Int) {
+        let offset_X = CGFloat(currentIndex)*self.bounds.width
+        collectionView.setContentOffset(CGPoint(x: offset_X, y: 0), animated: false)
+    }
+}
+extension PageContentView: UICollectionViewDelegate{
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        start_offSet_x = scrollView.contentOffset.x
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        var  progress: CGFloat = 0
+        var  sourceIndex: Int = 0
+        var  targetIndex: Int = 0
+        let currentOffsetX = scrollView.contentOffset.x
+        let scrollViewW = scrollView.bounds.width
+        if currentOffsetX > start_offSet_x  {
+            progress =  currentOffsetX / scrollViewW - floor(currentOffsetX/scrollViewW)
+            sourceIndex = Int(currentOffsetX/scrollViewW)
+            targetIndex = sourceIndex + 1
+            if targetIndex >= childVcs.count{
+                targetIndex = childVcs.count  - 1
+            }
+            if currentOffsetX - start_offSet_x == scrollViewW{
+                progress = 1
+                targetIndex = sourceIndex
+            }
+        }else
+        {
+            progress = 1 - (currentOffsetX / scrollViewW - floor(currentOffsetX/scrollViewW))
+            targetIndex = Int(currentOffsetX/scrollViewW)
+            sourceIndex = targetIndex + 1
+            if sourceIndex >= childVcs.count{
+                sourceIndex = childVcs.count - 1
+            }
+        }
+        print("---\(progress)+\(sourceIndex)+\(targetIndex)")
+        delegate?.pageContentViewDidChange(progress: progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
     }
 }
 
