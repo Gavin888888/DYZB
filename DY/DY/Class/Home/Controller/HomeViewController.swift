@@ -9,15 +9,38 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    //懒加载属性
+    private lazy var pageTitleView: PageTitleView = {
+        let titleFrame = CGRect(x: 0, y: 64, width: kScreenW, height: kNavigationBarH)
+        let titles = ["推荐","游戏","娱乐","酷玩"]
+        let titleView = PageTitleView.init(frame: titleFrame, titles: titles)
+//        titleView.backgroundColor = UIColor.purple
+        return titleView
+    }()
+    //懒加载内容属性
+    private lazy var pageContentView: PageContentView = {
+        let pageContentViewFrame = CGRect(x: 0, y: pageTitleView.frame.maxY, width: kScreenW, height: kScreenH - pageTitleView.frame.maxY)
+        var childVc = [UIViewController]
+        for _ in 0..<4{
+            let vc = UIViewController.init()
+            vc.view.backgroundColor = UIColor.init(r: CGFloat(arc4random(255.0)), g: <#T##CGFloat#>, b: <#T##CGFloat#>)
+            
+        }
+        let contentView = PageContentView.init(frame: pageContentViewFrame, childVcs: <#T##[UIViewController]#>, parentViewController: <#T##UIViewController#>)
+        contentView.backgroundColor = UIColor.red
+        return contentView
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        automaticallyAdjustsScrollViewInsets = false
         setUI()
     }
     //设置UI
     func setUI(){
         self.title = "直播"
         setNavigationBar()
+        view.addSubview(self.pageTitleView)
+        view.addSubview(pageContentView)
     }
     //设置导航栏
     func setNavigationBar() {
