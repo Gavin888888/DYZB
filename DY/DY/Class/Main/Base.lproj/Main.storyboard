@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="28" y="-1576"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="YgT-Md-kYE">
             <objects>
-                <viewController id="r3d-j4-dth" sceneMemberID="viewController">
+                <viewController id="r3d-j4-dth" customClass="HomeViewController" customModule="DY" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ieg-wx-FCB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -65,7 +65,6 @@
         <!--直播-->
         <scene sceneID="hkP-8v-nGL">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bml-U5-oGG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9XT-PB-rgI" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="直播" image="tabLive" selectedImage="tabLiveHL" id="203-ki-2da"/>
                     <toolbarItems/>
@@ -78,6 +77,7 @@
                         <segue destination="r3d-j4-dth" kind="relationship" relationship="rootViewController" id="poc-37-jz2"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bml-U5-oGG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1188" y="-4293"/>
         </scene>
