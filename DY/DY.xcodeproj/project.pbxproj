@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A02740220B5563800ED16C9 /* NetWorkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A02740120B5563800ED16C9 /* NetWorkTool.swift */; };
 		6A0F4B6020ABCFD30034697E /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0F4B5F20ABCFD30034697E /* MainTabBarViewController.swift */; };
 		6A1D70EE20B3AAC1008C79D3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1D70EB20B3AAC1008C79D3 /* HomeViewController.swift */; };
 		6A1D712220B3B583008C79D3 /* PageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1D712120B3B583008C79D3 /* PageTitleView.swift */; };
@@ -14,6 +15,12 @@
 		6A1D712620B3C75F008C79D3 /* PageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1D712520B3C75F008C79D3 /* PageContentView.swift */; };
 		6A1D712820B3C9FC008C79D3 /* UIColor_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1D712720B3C9FC008C79D3 /* UIColor_extension.swift */; };
 		6A558D8420B5100800EDB414 /* RecommandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A558D8320B5100800EDB414 /* RecommandViewController.swift */; };
+		6A558D8B20B53E9200EDB414 /* CollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A558D8920B53E9200EDB414 /* CollectionHeaderView.swift */; };
+		6A558D8C20B53E9200EDB414 /* CollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A558D8A20B53E9200EDB414 /* CollectionHeaderView.xib */; };
+		6A558D8F20B53EAA00EDB414 /* CollectionViewNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A558D8D20B53EAA00EDB414 /* CollectionViewNormalCell.swift */; };
+		6A558D9020B53EAA00EDB414 /* CollectionViewNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A558D8E20B53EAA00EDB414 /* CollectionViewNormalCell.xib */; };
+		6A558D9320B544C700EDB414 /* CollectionViewPrettyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A558D9120B544C700EDB414 /* CollectionViewPrettyCell.swift */; };
+		6A558D9420B544C700EDB414 /* CollectionViewPrettyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A558D9220B544C700EDB414 /* CollectionViewPrettyCell.xib */; };
 		6AB0DF7820ABC0500064145D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB0DF7720ABC0500064145D /* AppDelegate.swift */; };
 		6AB0DF7D20ABC0500064145D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AB0DF7B20ABC0500064145D /* Main.storyboard */; };
 		6AB0DF7F20ABC0500064145D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AB0DF7E20ABC0500064145D /* Assets.xcassets */; };
@@ -21,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A02740120B5563800ED16C9 /* NetWorkTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkTool.swift; sourceTree = "<group>"; };
 		6A0F4B5F20ABCFD30034697E /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		6A1D70EB20B3AAC1008C79D3 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6A1D712120B3B583008C79D3 /* PageTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTitleView.swift; sourceTree = "<group>"; };
@@ -28,6 +36,12 @@
 		6A1D712520B3C75F008C79D3 /* PageContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContentView.swift; sourceTree = "<group>"; };
 		6A1D712720B3C9FC008C79D3 /* UIColor_extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor_extension.swift; sourceTree = "<group>"; };
 		6A558D8320B5100800EDB414 /* RecommandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandViewController.swift; sourceTree = "<group>"; };
+		6A558D8920B53E9200EDB414 /* CollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHeaderView.swift; sourceTree = "<group>"; };
+		6A558D8A20B53E9200EDB414 /* CollectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionHeaderView.xib; sourceTree = "<group>"; };
+		6A558D8D20B53EAA00EDB414 /* CollectionViewNormalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewNormalCell.swift; sourceTree = "<group>"; };
+		6A558D8E20B53EAA00EDB414 /* CollectionViewNormalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewNormalCell.xib; sourceTree = "<group>"; };
+		6A558D9120B544C700EDB414 /* CollectionViewPrettyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewPrettyCell.swift; sourceTree = "<group>"; };
+		6A558D9220B544C700EDB414 /* CollectionViewPrettyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewPrettyCell.xib; sourceTree = "<group>"; };
 		6AB0DF7420ABC0500064145D /* DY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AB0DF7720ABC0500064145D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6AB0DF7C20ABC0500064145D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -64,10 +78,10 @@
 			children = (
 				6A0F4B5C20ABCBD80034697E /* Main */,
 				6A1D70E720B3AA06008C79D3 /* Home */,
-				6A1D70E620B3AA06008C79D3 /* Tools */,
 				6A0F4B5B20ABCBD80034697E /* Live */,
 				6A0F4B5920ABCBD80034697E /* Follow */,
 				6A0F4B5D20ABCBD80034697E /* Profile */,
+				6A1D70E620B3AA06008C79D3 /* Tools */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -89,8 +103,10 @@
 		6A0F4B5C20ABCBD80034697E /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				6A558D8520B53E4A00EDB414 /* View */,
+				6A558D8720B53E6A00EDB414 /* Controller */,
+				6A558D8620B53E6A00EDB414 /* Model */,
 				6AB0DF7B20ABC0500064145D /* Main.storyboard */,
-				6A0F4B5F20ABCFD30034697E /* MainTabBarViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -107,6 +123,7 @@
 			children = (
 				6A1D712320B3B727008C79D3 /* Common.swift */,
 				6A1D712720B3C9FC008C79D3 /* UIColor_extension.swift */,
+				6A02740120B5563800ED16C9 /* NetWorkTool.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -140,10 +157,39 @@
 		6A1D70ED20B3AAC1008C79D3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6A1D712120B3B583008C79D3 /* PageTitleView.swift */,
-				6A1D712520B3C75F008C79D3 /* PageContentView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		6A558D8520B53E4A00EDB414 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6A1D712120B3B583008C79D3 /* PageTitleView.swift */,
+				6A1D712520B3C75F008C79D3 /* PageContentView.swift */,
+				6A558D8920B53E9200EDB414 /* CollectionHeaderView.swift */,
+				6A558D8A20B53E9200EDB414 /* CollectionHeaderView.xib */,
+				6A558D8D20B53EAA00EDB414 /* CollectionViewNormalCell.swift */,
+				6A558D8E20B53EAA00EDB414 /* CollectionViewNormalCell.xib */,
+				6A558D9120B544C700EDB414 /* CollectionViewPrettyCell.swift */,
+				6A558D9220B544C700EDB414 /* CollectionViewPrettyCell.xib */,
+			);
+			name = View;
+			path = Viewo;
+			sourceTree = "<group>";
+		};
+		6A558D8620B53E6A00EDB414 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6A558D8720B53E6A00EDB414 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6A0F4B5F20ABCFD30034697E /* MainTabBarViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		6AB0DF6B20ABC0500064145D = {
@@ -194,6 +240,7 @@
 				6AB0DF7020ABC0500064145D /* Sources */,
 				6AB0DF7120ABC0500064145D /* Frameworks */,
 				6AB0DF7220ABC0500064145D /* Resources */,
+				6E5158FFA3A542DBF7AE1854 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -244,7 +291,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AB0DF7F20ABC0500064145D /* Assets.xcassets in Resources */,
+				6A558D9020B53EAA00EDB414 /* CollectionViewNormalCell.xib in Resources */,
 				6AB0DF7D20ABC0500064145D /* Main.storyboard in Resources */,
+				6A558D8C20B53E9200EDB414 /* CollectionHeaderView.xib in Resources */,
+				6A558D9420B544C700EDB414 /* CollectionViewPrettyCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +319,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6E5158FFA3A542DBF7AE1854 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DY/Pods-DY-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DY/Pods-DY-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -276,8 +344,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A02740220B5563800ED16C9 /* NetWorkTool.swift in Sources */,
+				6A558D8B20B53E9200EDB414 /* CollectionHeaderView.swift in Sources */,
 				6A1D712220B3B583008C79D3 /* PageTitleView.swift in Sources */,
+				6A558D9320B544C700EDB414 /* CollectionViewPrettyCell.swift in Sources */,
 				6A1D712620B3C75F008C79D3 /* PageContentView.swift in Sources */,
+				6A558D8F20B53EAA00EDB414 /* CollectionViewNormalCell.swift in Sources */,
 				6AB0DF7820ABC0500064145D /* AppDelegate.swift in Sources */,
 				6A0F4B6020ABCFD30034697E /* MainTabBarViewController.swift in Sources */,
 				6A1D712420B3B727008C79D3 /* Common.swift in Sources */,
