@@ -9,10 +9,10 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    let titles = ["推荐","游戏","娱乐","酷玩"]
     //懒加载属性
     private lazy var pageTitleView: PageTitleView = {[weak self] in
-        let titleFrame = CGRect(x: 0, y: 64, width: kScreenW, height: kNavigationBarH)
-        let titles = ["推荐","游戏","娱乐","酷玩"]
+        let titleFrame = CGRect(x: 0, y: kStatusBarH+kNavigationBarH, width: kScreenW, height: kTitleViewH)
         let titleView = PageTitleView.init(frame: titleFrame, titles: titles)
         titleView.delegate = self;
 //        titleView.backgroundColor = UIColor.purple
@@ -20,14 +20,18 @@ class HomeViewController: UIViewController {
     }()
     //懒加载内容属性
     private lazy var pageContentView: PageContentView = {[weak self] in
-        let pageContentViewFrame = CGRect(x: 0, y: pageTitleView.frame.maxY, width: kScreenW, height: kScreenH - pageTitleView.frame.maxY)
+        // 1.确定内容的frame
+        let contentH = kScreenH - kStatusBarH - kNavigationBarH - kTitleViewH - kTabbarH
+        let contentFrame = CGRect(x: 0, y: kStatusBarH + kNavigationBarH + kTitleViewH, width: kScreenW, height: contentH)
+        
         var childVc: [UIViewController] = [UIViewController]()
-        for _ in 0..<4{
+        childVc.append(RecommandViewController())
+        for _ in 0..<titles.count-1{
             let vc = UIViewController.init()
             vc.view.backgroundColor = UIColor.init(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)))
             childVc.append(vc)
         }
-        let contentView = PageContentView.init(frame: pageContentViewFrame, childVcs: childVc, parentViewController: self)
+        let contentView = PageContentView.init(frame: contentFrame, childVcs: childVc, parentViewController: self)
         contentView.backgroundColor = UIColor.white
         contentView.delegate = self!
         return contentView

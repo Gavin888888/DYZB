@@ -7,15 +7,16 @@
 //
 
 import UIKit
+let kTitleViewH : CGFloat = 40
 //定义常量
-let KnormalColor:(CGFloat,CGFloat,CGFloat) = (85,85,85)
-let KselectedColor:(CGFloat,CGFloat,CGFloat) = (255,128,0)
+private let KnormalColor:(CGFloat,CGFloat,CGFloat) = (85,85,85)
+private let KselectedColor:(CGFloat,CGFloat,CGFloat) = (255,128,0)
 protocol PageTitleViewDelegate: class {
     func pageTitleViewDidSelected(selectedIndex: Int)
 }
 class PageTitleView: UIView {
     //记录当前选中的标签
-    private var currentIndex = 0
+    fileprivate var currentIndex = 0
     //设置代理
     weak var delegate: PageTitleViewDelegate?
     //懒加载属性
@@ -107,19 +108,19 @@ extension PageTitleView {
 }
 extension PageTitleView{
     @objc func labelTapGesture(tap:UITapGestureRecognizer) {
-        guard let label:UILabel = tap.view as! UILabel else {
-            return
-        }
-        label.textColor = UIColor.init(r: KselectedColor.0, g: KselectedColor.1, b: KselectedColor.2)
-        let oldLabel = self.titleLabel[currentIndex]
-        oldLabel.textColor = UIColor.init(r: KnormalColor.0, g: KnormalColor.1, b: KnormalColor.2)
-        currentIndex = label.tag
-        //滑块滚动
-        let scrollLineX = CGFloat(currentIndex)*self.scrollLine.bounds.width
-        UIView .animate(withDuration: 0.05) {
-            self.scrollLine.frame.origin.x = scrollLineX
-        }
-        delegate?.pageTitleViewDidSelected(selectedIndex: currentIndex)
+        guard let label = tap.view as? UILabel else { return }
+
+        if label.tag == currentIndex { return }
+            label.textColor = UIColor.init(r: KselectedColor.0, g: KselectedColor.1, b: KselectedColor.2)
+            let oldLabel = self.titleLabel[currentIndex]
+            oldLabel.textColor = UIColor.init(r: KnormalColor.0, g: KnormalColor.1, b: KnormalColor.2)
+            currentIndex = label.tag
+            //滑块滚动
+            let scrollLineX = CGFloat(currentIndex)*self.scrollLine.bounds.width
+            UIView .animate(withDuration: 0.05) {
+                self.scrollLine.frame.origin.x = scrollLineX
+            }
+            delegate?.pageTitleViewDidSelected(selectedIndex: currentIndex)
     }
     func setProgressAndSourceIndexAndTargetIndex(progress: CGFloat,sourceIndex: Int ,targetIndex: Int ) {
         let sourceLabel = titleLabel[sourceIndex]
@@ -131,5 +132,7 @@ extension PageTitleView{
         let scroll_total = targetLabel.frame.origin.x - sourceLabel.frame.origin.x
         let move_x = scroll_total*progress
         scrollLine.frame.origin.x = move_x + sourceLabel.frame.origin.x
+        
+        currentIndex = targetIndex
     }
 }
