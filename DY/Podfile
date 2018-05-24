@@ -8,4 +8,5 @@ target 'DY' do
 
   # Pods for DY
   pod 'Alamofire', '~> 4.0.1'
+  pod 'Kingfisher'
 end

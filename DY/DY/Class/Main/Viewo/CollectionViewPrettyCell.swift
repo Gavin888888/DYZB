@@ -9,10 +9,16 @@
 import UIKit
 
 class CollectionViewPrettyCell: UICollectionViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    // MARK:- 控件属性
+    @IBOutlet weak var cityBtn: UIButton!
+    
+    // MARK:- 定义模型属性
+     var anchor : AnchorModel? {
+        didSet {
+                        
+            // 2.所在的城市
+//            cityBtn.setTitle(anchor?.anchor_city, for: UIControlState())
+        }
     }
-
 }

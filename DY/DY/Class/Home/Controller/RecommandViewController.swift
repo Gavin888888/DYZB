@@ -18,7 +18,7 @@ let KCollectionPrettyItemID = "KCollectionPrettyItemID"
 let KCollectionHeaderID = "KCollectionHeaderID"
 
 class RecommandViewController: UIViewController {
-
+    fileprivate lazy var recommendVM: RecommendViewModel = RecommendViewModel()
     lazy var collectionView: UICollectionView = {[unowned self] in
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: kNormalItemW, height: kNormalItemH)
@@ -40,48 +40,38 @@ class RecommandViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        loaddata()
-        let contentH = kScreenH - kStatusBarH - kNavigationBarH - kTitleViewH - kTabbarH
-        let contentFrame = CGRect(x: 0, y: 0, width: kScreenW, height: contentH)
-        self.view.frame = contentFrame
-        print(self.view.bounds)
+        self.recommendVM.requestData {
+            // 1.展示推荐数据
+            self.collectionView.reloadData()
+
+        }
     }
 }
 extension RecommandViewController{
     func setupUI() {
         view.addSubview(collectionView)
-    }
-    func loaddata()  {
-        NetWorkTool.requestData(type: .Get, urlString: "http://service3.99melove.cn/sgzx-service/service/rest/tk.File/collection/upload") { (result) in
-            print(result)
-        }
+        let contentH = kScreenH - kStatusBarH - kNavigationBarH - kTitleViewH - kTabbarH
+        let contentFrame = CGRect(x: 0, y: 0, width: kScreenW, height: contentH)
+        self.view.frame = contentFrame
     }
 }
 extension RecommandViewController : UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 8
+        return recommendVM.anchorGroups.count
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return 5
-        }
-        return 4
+        return recommendVM.anchorGroups[section].anchors.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        var item: UICollectionViewCell = UICollectionViewCell.init()
-        if indexPath.section == 1 {
-            item =  collectionView.dequeueReusableCell(withReuseIdentifier: KCollectionPrettyItemID, for: indexPath)
-        }else
-        {
-            item = collectionView.dequeueReusableCell(withReuseIdentifier: KCollectionItemID, for: indexPath)
-        }
-        return item
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KCollectionItemID, for: indexPath) as! CollectionViewNormalCell
+        cell.model = recommendVM.anchorGroups[indexPath.section].anchors[indexPath.row]
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         // 1.取出HeaderView
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: KCollectionHeaderID, for: indexPath)
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: KCollectionHeaderID, for: indexPath) as! CollectionHeaderView
+        headerView.group = recommendVM.anchorGroups[indexPath.section]
         return headerView
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
